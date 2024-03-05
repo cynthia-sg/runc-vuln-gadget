@@ -12,13 +12,30 @@ description: A gadget to detect runc vulnerabilities
 license: GPL-2.0-only
 homeURL: https://github.com/alban/runc-vuln-gadget
 #appVersion: The version of the app that this contains (optional)
-containersImages: # (optional)
-  - name: runc-vuln-gadget
+containersImages:
+  - name: gadget
     image: ghcr.io/alban/runc-vuln-gadget:latest
-    #whitelisted: When set to true, this image won't be scanned for security vulnerabilities
-    platforms: # (optional)
+    platforms:
       - linux/amd64
       - linux/arm64
+  - name: gadget-alternative-location
+    image: alban.azurecr.io/runc-vuln-gadget:latest
+    platforms:
+      - linux/amd64
+      - linux/arm64
+keywords:
+  - gadget
+  - vulnerability
+links:
+  - name: source
+    url: https://github.com/alban/runc-vuln-gadget
+changes:
+  - kind: added
+    description: Initial release
+provider:
+  name: Inspektor Gadget
+recommendations:
+  - url: https://artifacthub.io/packages/helm/gadget/gadget
 #containsSecurityUpdates: Whether this package version contains security updates (optional, boolean)
 #operator: Whether this package is an Operator (optional, boolean)
 #deprecated: Whether this package is deprecated (optional, boolean)
